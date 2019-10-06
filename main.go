@@ -33,7 +33,7 @@ func main() {
 
 	// create new TransIP API SOAP client
 	c, err := gotransip.NewSOAPClient(gotransip.ClientConfig{
-		AccountName:    "Recognition2",
+		AccountName:    "HELP",
 		PrivateKeyPath: "transip-priv.key",
 	})
 	if err != nil {
@@ -61,7 +61,7 @@ func main() {
 		})
 	} else if strings.HasSuffix(hookName, "stop") {
 		// Delete our newly created entry
-		NewDNSEntries := make([]domain.DNSEntry, 0)
+		NewDNSEntries := make([]domain.DNSEntry)
 		for _, v := range dnsEntries {
 			if !strings.HasPrefix(v.Name, "_acme-challenge") {
 				NewDNSEntries = append(NewDNSEntries, v)
